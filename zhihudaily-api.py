@@ -30,7 +30,7 @@ def before(date):
     headers = {
     'User-Agent': 'Mozilla/5.0'
     }
-    r = requests.get("https://news-at.zhihu.com/api/4/news/before/20131119{date}".format(date=date),headers = headers)
+    r = requests.get("https://news-at.zhihu.com/api/4/news/before/{date}".format(date=date),headers = headers)
     
     result = make_response(r.text)
     result.headers['Access-Control-Allow-Origin']='*'
@@ -41,7 +41,7 @@ def storyExtra(id):
     headers = {
     'User-Agent': 'Mozilla/5.0'
     }
-    r = requests.get("https://news-at.zhihu.com/api/4/story-extra/#{id}".format(id=id),headers = headers)
+    r = requests.get("https://news-at.zhihu.com/api/4/story-extra/{id}".format(id=id),headers = headers)
     result = make_response(r.text)
     result.headers['Access-Control-Allow-Origin']='*'
     return result
