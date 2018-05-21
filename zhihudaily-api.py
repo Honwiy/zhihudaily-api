@@ -46,6 +46,26 @@ def storyExtra(id):
     result.headers['Access-Control-Allow-Origin']='*'
     return result
 
+@app.route('/long-comments/<id>')
+def longComments(id):
+    headers = {
+    'User-Agent': 'Mozilla/5.0'
+    }
+    r = requests.get("https://news-at.zhihu.com/api/4/story/{id}/long-comments".format(id=id),headers = headers)
+    result = make_response(r.text)
+    result.headers['Access-Control-Allow-Origin']='*'
+    return result
+
+@app.route('/short-comments/<id>')
+def shortComments(id):
+    headers = {
+    'User-Agent': 'Mozilla/5.0'
+    }
+    r = requests.get("https://news-at.zhihu.com/api/4/story/{id}/short-comments".format(id=id),headers = headers)
+    result = make_response(r.text)
+    result.headers['Access-Control-Allow-Origin']='*'
+    return result
+
 
 
 if __name__ == '__main__':
